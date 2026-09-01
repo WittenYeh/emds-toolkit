@@ -14,11 +14,12 @@
 
 #pragma once
 
-/**
- * @file emds_toolkit.hpp
- * @brief Convenience header that exposes the public emds-toolkit API.
- */
+#include <cstddef>
+#include <span>
 
-#include <emds-toolkit/common/byte_view.hpp>
-#include <emds-toolkit/common/requires.hpp>
-#include <emds-toolkit/io/io_buffer.hpp>
+namespace emds::common {
+
+/** @brief Non-owning, read-only view over a contiguous sequence of bytes. */
+using ByteView = std::span<const std::byte>;
+
+}  // namespace emds::common
