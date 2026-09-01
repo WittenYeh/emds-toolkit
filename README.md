@@ -6,7 +6,7 @@
 
 - A C++20-compatible compiler
 - CMake 3.20 or newer when consuming the provided CMake target
-- Linux with Direct I/O support for `emds::io::IOBuffer`
+- Linux with Direct I/O support for `emds::io::DirectIOBuffer`
 
 ## Usage
 
@@ -20,7 +20,7 @@ Or include individual components:
 
 ```cpp
 #include <emds-toolkit/common/requires.hpp>
-#include <emds-toolkit/io/io_buffer.hpp>
+#include <emds-toolkit/io/direct_io_buffer.hpp>
 ```
 
 The public namespaces currently provided are `emds::common` and `emds::io`.

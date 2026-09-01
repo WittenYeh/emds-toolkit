@@ -21,11 +21,11 @@ auto throws_invalid_argument(FunctionT&& function, std::string_view expected_mes
 }  // namespace
 
 auto main() -> int {
-    static_assert(emds::io::IOBuffer::AlignBytes == 4096);
-    static_assert(!std::is_copy_constructible_v<emds::io::IOBuffer>);
-    static_assert(!std::is_copy_assignable_v<emds::io::IOBuffer>);
-    static_assert(std::is_nothrow_move_constructible_v<emds::io::IOBuffer>);
-    static_assert(std::is_nothrow_move_assignable_v<emds::io::IOBuffer>);
+    static_assert(emds::io::DirectIOBuffer::AlignBytes == 4096);
+    static_assert(!std::is_copy_constructible_v<emds::io::DirectIOBuffer>);
+    static_assert(!std::is_copy_assignable_v<emds::io::DirectIOBuffer>);
+    static_assert(std::is_nothrow_move_constructible_v<emds::io::DirectIOBuffer>);
+    static_assert(std::is_nothrow_move_assignable_v<emds::io::DirectIOBuffer>);
 
     emds::common::require_argument(true, "satisfied requirement");
 
@@ -33,11 +33,11 @@ auto main() -> int {
         [] { emds::common::require_argument(false, "unsatisfied requirement"); },
         "unsatisfied requirement"));
     assert(throws_invalid_argument(
-        [] { (void)emds::io::IOBuffer::make({}, 0); },
-        "IOBuffer capacity must be greater than zero"));
+        [] { (void)emds::io::DirectIOBuffer::make({}, 0); },
+        "DirectIOBuffer capacity must be greater than zero"));
     assert(throws_invalid_argument(
-        [] { (void)emds::io::IOBuffer::make({}, 1); },
-        "IOBuffer capacity must be a multiple of 4096 bytes"));
+        [] { (void)emds::io::DirectIOBuffer::make({}, 1); },
+        "DirectIOBuffer capacity must be a multiple of 4096 bytes"));
 
     return 0;
 }

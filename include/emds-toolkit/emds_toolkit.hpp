@@ -21,4 +21,4 @@
 
 #include <emds-toolkit/common/byte_view.hpp>
 #include <emds-toolkit/common/requires.hpp>
-#include <emds-toolkit/io/io_buffer.hpp>
+#include <emds-toolkit/io/direct_io_buffer.hpp>
